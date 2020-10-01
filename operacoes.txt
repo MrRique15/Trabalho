@@ -1,0 +1,38 @@
+b 233
+b 274
+b 93
+b 430
+b 377
+b 1
+b 335
+b 402
+r 280
+r 27
+r 302
+r 145
+r 184
+r 230
+r 376
+i 424|Queen of Air and Darkness|Fantasy|Cassandra Clare|4.36|912|2018/12/04|
+i 427|End of Watch|Mystery & Thriller|Stephen King|4.08|432|2016/06/07|
+i 459|Grey|Romance|E.L. James|3.79|576|2015/06/18|
+i 464|The Nerdy Nummies Cookbook: Sweet Treats for the Geek in All of Us|Food & Cookbooks|Rosanna Pansino|4.4|256|2015/11/03|
+i 411|Bossypants|Humor|Tina Fey|3.96|283|2011/04/05|
+i 450|The Long Haul|Children's|Jeff Kinney|4.34|224|2014/11/04|
+i 471|Deadline|Horror|Mira Grant|4.1|584|2011/06/01|
+i 455|Maybe Someday|Romance|Colleen Hoover|4.29|385|2014/03/18|
+i 419|Memories|Poetry|Lang Leav|4.11|256|2015/10/06|
+i 460|Frostbite: The Graphic Novel|Graphic Novels & Comics|Richelle Mead, Emma Vieceli, Leigh Dragoon|4.32|156|2012/05/24|
+i 463|Lover Reborn|Romance|J.R. Ward|4.35|572|2012/03/27|
+i 443|Ready Player One|Science Fiction|Ernest Cline|4.27|374|2011/08/16|
+i 465|Divergent|Fiction|Veronica Roth|4.2|487|2011/04/25|
+r 230
+r 263
+r 360
+b 412
+b 455
+b 460
+b 459
+b 427
+b 145
+b 27
