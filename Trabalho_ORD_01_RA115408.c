@@ -25,6 +25,9 @@ int insere_reg_v2(char*, short, int*, int*, int *);   //faz a inserção de um r
 int remove_reg(int);                                  //Faz a remoção de um registro, colocando em seu lugar o seekposition da LED onde pode ser utilizado
 short leia_reg_first(FILE*, char*, int);              //utilizada para ler os registros do livros.txt -> leitura primaria para jogar em .dat
 
+/* Roda na primeira chamada do programa, identificando qual função deve ser executada, 
+inserção de dados ou consulta e atualização. Leva como base os parametros passados na 
+inicialização do programa para que se possa entender o que fazer dentro do programa */
 int main(int argc, char **argv) {
 
     FILE *aux;
