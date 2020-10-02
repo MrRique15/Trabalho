@@ -21,13 +21,14 @@ FILE *arq;
 short leia_aux(FILE*, char*, int);                    //utilizada para ler as instruções passadas por operações.txt
 void menu(int, char[], int, int*);                    //utilizada para gerenciar e executar as instruções passadas por operações;txt
 int busca_reg(int, char*, int*, int*);                //faz a busca e confere a existência de um registro com certa chave dentro de dados.dat
-int insere_reg_v2(char*, short, int*, int*, int *);   //faz a inserção de um registro dentro da dados.dat, verificando a LED, se não couber em nenhum espaço, coloca no final
+int insere_reg(char*, short, int*, int*, int *);   //faz a inserção de um registro dentro da dados.dat, verificando a LED, se não couber em nenhum espaço, coloca no final
 int remove_reg(int);                                  //Faz a remoção de um registro, colocando em seu lugar o seekposition da LED onde pode ser utilizado
 short leia_reg_first(FILE*, char*, int);              //utilizada para ler os registros do livros.txt -> leitura primaria para jogar em .dat
 
-/* Roda na primeira chamada do programa, identificando qual função deve ser executada, 
-inserção de dados ou consulta e atualização. Leva como base os parametros passados na 
-inicialização do programa para que se possa entender o que fazer dentro do programa */
+/* Roda direto na primeira chamada do programa, identificando qual função deve ser 
+executada, inserção de dados, consulta ou remoção. Leva como base os parametros 
+passados na inicialização do programa para que se possa diferenciar o que fazer dentro
+do programa */
 int main(int argc, char **argv) {
 
     FILE *aux;
@@ -152,7 +153,9 @@ int main(int argc, char **argv) {
     }
 }
 
-//le da letra de instrução até o "\n"
+/* Função para a leitura de uma linha do arquivo de operacoes, lendo até o
+caracter de quebra de linha, e retornando por parâmetro a string lida de 
+dentro do arquivo passado por parâmetro também */
 short leia_aux(FILE *entrada, char *campo, int tam) 
 {
     short i = 0;
@@ -171,7 +174,9 @@ short leia_aux(FILE *entrada, char *campo, int tam)
     return i;
 }
 
-/* Coleta a opção desejada pelo usuário, para ser utilizada na MAIN dentro do switch, returnando pelo return */
+/* Função menu, utilizada para selecionar por meio de chaves, as quais foram enviadas
+por meio da main, direcionando o programa para uma busca, inserção ou remoção dentro
+do arquivo de dados */
 void menu(int escolha, char string[], int tam, int *led)
 {
     int i;
@@ -230,7 +235,7 @@ void menu(int escolha, char string[], int tam, int *led)
             keynumber = atoi(campo);
 
             printf("\nInsercao do registro de chave %d (%d bytes)\n", keynumber,sizereg);
-            sobra = insere_reg_v2(reg, sizereg, &seekleft, &seekposition, &vazio);
+            sobra = insere_reg(reg, sizereg, &seekleft, &seekposition, &vazio);
             if(sobra > 50)
             {
                 printf("Local: offset = %d bytes (0x%x)\n", seekposition, seekposition);
@@ -291,6 +296,10 @@ void menu(int escolha, char string[], int tam, int *led)
     }
 }
 
+
+/* Função para realizar a busca dentro do arquivo de dados retorando sucesso
+ou não, e também por parâmetro, retorna o registro encontrado, seu tamanho
+e sua posição em relação aos bytes do arquivo de dados */
 int busca_reg(int key, char *reg, int *size, int *seekposition)
 {
     rewind(arq);                      //leva o ponteiro de arquivo pra posição 0
@@ -345,8 +354,13 @@ int busca_reg(int key, char *reg, int *size, int *seekposition)
     }
 }
 
-// retornar sobra
-int insere_reg_v2(char *reg, short sizereg, int *seekleft, int *seekputted, int *vazio)
+/* Função utilizada para a inserção de um registro dentro do arquvi de dados,
+buscando na LED registrada no cabeçalho do arquivo de dados para ver se existe 
+ou não uma sobra que se possa inserir tal registro, caso exista a sobra, realiza
+a inserção no local, caso contrário, insere no final do arquivo. Se a inserção
+em uma sobra resultar em uma sobra maior do que 50 bytes, essa sobra será registrada
+no começo da LED de sobras */
+int insere_reg(char *reg, short sizereg, int *seekleft, int *seekputted, int *vazio)
 {
 
     short space;        
@@ -438,6 +452,9 @@ int insere_reg_v2(char *reg, short sizereg, int *seekleft, int *seekputted, int 
     }
 }
 
+/* Função que realiza a remoção de um registro de dentro do arquivo de dados,
+registrando na LED de sobras qual a posição em bytes do arquivo removido, para 
+que se possa realizar uma inserção dentro desta sobra futuramente */
 int remove_reg(int seekposition)
 {
     int led;
@@ -466,7 +483,10 @@ int remove_reg(int seekposition)
     }  
 }
 
-/* Coleta o registro de Livros.txt para inserir em dados.dat (trabalha na primeira leitura dos dados brutos) */
+/* Função utilizada na criação do arquivo de dados, onde tem-se a leitura
+do arquivo de livros, calculando o tamanho de cada registro e os retornando
+por meio dos parâmetros para a função main escrevê-los dentro do arquivo
+de dados final, o qual será utilizado nas operações futuras */
 short leia_reg_first(FILE *fp, char *campo, int tam)
 {
     short i = 0;
