@@ -353,7 +353,7 @@
 35|The Woman in the Window|Mystery & Thriller|A.J. Finn|3.94|429|2018/01/02|
 301|Origin|Mystery & Thriller|Dan Brown|3.86|461|2017/10/03|
 81|Julia's House for Lost Creatures|Picture Books|Ben Hatke|4.24|32|2014/09/02|
-223|Behind the Beautiful Forevers: Life, Death, and Hope in a Mumbai Undercity|Nonfiction|Katherine Boo|3.98|256|2012/02/07|      
+223|Behind the Beautiful Forevers: Life, Death, and Hope in a Mumbai Undercity|Nonfiction|Katherine Boo|3.98|256|2012/02/07|
 1|The Autistic Brain: Thinking Across the Spectrum|Nonfiction|Temple Grandin, Richard Panek|4.11|240|2013/04/30|
 391|Little Moments of Love|Graphic Novels & Comics|Catana Chetwynd|4.34|160|2018/06/19|
 365|Pumpkinheads|Graphic Novels & Comics|Rainbow Rowell, Faith Erin Hicks|4.14|209|2019/08/27|
