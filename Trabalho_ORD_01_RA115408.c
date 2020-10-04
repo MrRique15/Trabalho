@@ -251,7 +251,7 @@ void menu(int escolha, char string[], int tam, int *led)
             }
             else
             {
-                printf("Local: offset = %d bytes (0x%x)\n", seekposition, &seekposition);
+                printf("Local: offset = %d bytes (0x%x)\n", seekposition, seekposition);
                 printf("Tamanho do espaco: %d bytes\n\n", vazio);
                 
             }    
